@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category }} — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">Category: {{ category }}</h1>
+
+    <div class="space-y-4">
+        {% for article in articles %}
+        <div class="flex justify-between items-baseline">
+            <a href="{{ SITEURL }}/{{ article.url }}" class="link link-hover text-lg">{{ article.title }}</a>
+            <time datetime="{{ article.date.isoformat() }}" class="text-sm opacity-60 ml-4 shrink-0">{{ article.date.strftime('%B %d, %Y') }}</time>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mt-8">
+        <a href="{{ SITEURL }}/blog/" class="btn btn-ghost">&larr; All Posts</a>
+    </div>
+</div>
+{% endblock %}

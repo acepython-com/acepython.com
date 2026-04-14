@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Tags — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">Tags</h1>
+
+    <div class="flex flex-wrap gap-3">
+        {% for tag, articles in tags|sort %}
+        <a href="{{ SITEURL }}/{{ tag.url }}" class="badge badge-lg badge-outline gap-2">
+            {{ tag }}
+            <span class="badge badge-sm">{{ articles|count }}</span>
+        </a>
+        {% endfor %}
+    </div>
+
+    <div class="mt-8">
+        <a href="{{ SITEURL }}/blog/" class="btn btn-ghost">&larr; Blog</a>
+    </div>
+</div>
+{% endblock %}
