@@ -3,3 +3,4 @@ docs/superpowers/
 .venv/
 output/
 .worktrees/
+__pycache__/
