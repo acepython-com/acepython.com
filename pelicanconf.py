@@ -32,6 +32,11 @@ TAGS_SAVE_AS = 'blog/tags/index.html'
 CATEGORY_URL = 'blog/category/{slug}/'
 CATEGORY_SAVE_AS = 'blog/category/{slug}/index.html'
 
+# Use direct templates for custom pages
+DIRECT_TEMPLATES = ['index', 'blog']
+PAGINATED_TEMPLATES = {'blog': 10}
+BLOG_SAVE_AS = 'blog/index.html'
+
 # Disable unused default pages
 AUTHOR_SAVE_AS = ''
 AUTHORS_SAVE_AS = ''

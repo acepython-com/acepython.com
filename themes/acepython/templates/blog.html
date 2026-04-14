@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Blog — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">Blog</h1>
+
+    {% if articles %}
+    <div class="space-y-8">
+        {% for article in articles %}
+        <article class="card bg-base-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <a href="{{ SITEURL }}/{{ article.url }}" class="hover:text-primary">
+                        {{ article.title }}
+                    </a>
+                </h2>
+                <div class="text-sm opacity-60">
+                    <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime('%B %d, %Y') }}</time>
+                    {% if article.category %}
+                    &middot; <a href="{{ SITEURL }}/{{ article.category.url }}" class="link link-hover">{{ article.category }}</a>
+                    {% endif %}
+                </div>
+                {% if article.summary %}
+                <p>{{ article.summary }}</p>
+                {% endif %}
+                {% if article.tags %}
+                <div class="card-actions justify-start mt-2">
+                    {% for tag in article.tags %}
+                    <a href="{{ SITEURL }}/{{ tag.url }}" class="badge badge-outline badge-sm">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+
+    {% if articles_paginator.num_pages > 1 %}
+    <div class="flex justify-center mt-12">
+        <div class="join">
+            {% if articles_page.has_previous() %}
+            <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" class="join-item btn">Previous</a>
+            {% endif %}
+            {% for num in range(1, articles_paginator.num_pages + 1) %}
+            <a href="{{ SITEURL }}/blog/{% if num > 1 %}page/{{ num }}/{% endif %}"
+               class="join-item btn {% if num == articles_page.number %}btn-active{% endif %}">
+                {{ num }}
+            </a>
+            {% endfor %}
+            {% if articles_page.has_next() %}
+            <a href="{{ SITEURL }}/{{ articles_next_page.url }}" class="join-item btn">Next</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% else %}
+    <p class="text-lg opacity-70">No posts yet. Check back soon!</p>
+    {% endif %}
+</div>
+{% endblock %}
