@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}AcePython — Python Courses & Code Templates by Philip James{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero min-h-[70vh] bg-base-200">
+    <div class="hero-content text-center">
+        <div class="max-w-2xl">
+            <h1 class="text-5xl font-bold">AcePython</h1>
+            <p class="py-6 text-xl">
+                Hey, I'm Philip James. I've spent over a decade teaching Python at
+                conferences like PyCon and DjangoCon. Now I'm building something new —
+                hands-on courses and ready-to-use code templates to help you level up your Python.
+            </p>
+            <p class="pb-6 text-lg opacity-80">
+                Sign up to be the first to know when they launch.
+            </p>
+
+            <!-- Buttondown Signup Form -->
+            <form
+                action="https://buttondown.com/api/emails/embed-subscribe/NEWSLETTER_SLUG"
+                method="post"
+                hx-boost="true"
+                class="flex flex-col sm:flex-row gap-3 justify-center items-center max-w-md mx-auto"
+            >
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                    class="input input-bordered w-full sm:flex-1"
+                />
+                <button type="submit" class="btn btn-primary w-full sm:w-auto">
+                    Notify Me
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Credibility Strip -->
+<div class="bg-base-100 py-12">
+    <div class="max-w-2xl mx-auto text-center px-4">
+        <p class="text-lg">
+            Philip has been speaking about Python for over a decade at conferences including
+            PyCon, DjangoCon, and community meetups around the world.
+        </p>
+        <a
+            href="https://pyvideo.org/speaker/philip-james.html"
+            class="link link-primary mt-4 inline-block"
+            target="_blank"
+            rel="noopener"
+        >
+            Watch past talks on PyVideo →
+        </a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer footer-center p-6 bg-base-200 text-base-content">
+    <p>&copy; {{ CURRENT_YEAR }} Philip James. All rights reserved.</p>
+</footer>
+{% endblock %}
