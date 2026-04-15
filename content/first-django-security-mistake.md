@@ -5,7 +5,7 @@ Tags: django, security
 Slug: first-django-security-mistake
 Summary: Oops I committed my secret key!
 
-## You've just started your first Django project...
+## You've just started a Django project...
 
 ```python
 uv venv && uv pip install django
