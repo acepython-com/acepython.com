@@ -30,6 +30,29 @@
 
     <div class="divider mt-12"></div>
 
+    <!-- Newsletter CTA -->
+    <div class="card shadow-md mt-8 mb-8" style="background: linear-gradient(135deg, oklch(0.45 0.15 160), oklch(0.55 0.12 200));">
+        <div class="card-body text-center text-white">
+            <h3 class="text-2xl font-bold">Want more like this?</h3>
+            <p class="opacity-90">Get notified when I publish new posts about Python and Django.</p>
+            <form
+                action="https://buttondown.com/api/emails/embed-subscribe/acepython"
+                method="post"
+                class="flex flex-col sm:flex-row gap-3 justify-center items-center max-w-md mx-auto mt-2"
+            >
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                    class="input input-bordered bg-white/90 text-base-content w-full sm:flex-1"
+                />
+                <button type="submit" class="btn w-full sm:w-auto" style="background: oklch(0.85 0.15 85); color: oklch(0.3 0.05 85); border: none;">Subscribe</button>
+            </form>
+            <p class="text-sm opacity-70 mt-1">No spam. Unsubscribe anytime.</p>
+        </div>
+    </div>
+
     <div class="flex justify-between items-center">
         <a href="{{ SITEURL }}/blog/" class="btn btn-ghost">&larr; All Posts</a>
     </div>
